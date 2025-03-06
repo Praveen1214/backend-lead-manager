@@ -8,14 +8,11 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/leads', leadRoutes);
+app.use('/api/leads', leadRoutes);
 
-// Database connection
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/lead-manager');
@@ -28,7 +25,6 @@ const connectDB = async () => {
 
 connectDB();
 
-// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

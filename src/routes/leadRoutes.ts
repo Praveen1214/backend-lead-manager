@@ -1,3 +1,4 @@
+// src/routes/leadRoutes.ts
 import { Router } from 'express';
 import { getLeads, createLead } from '../controllers/leadController';
 

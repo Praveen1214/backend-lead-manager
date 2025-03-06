@@ -9,7 +9,7 @@ export interface ILead extends Document {
   createdAt: Date;
 }
 
-const LeadSchema = new Schema({
+const LeadSchema = new Schema<ILead>({
   name: {
     type: String,
     required: [true, 'Name is required'],
@@ -33,4 +33,4 @@ const LeadSchema = new Schema({
   }
 });
 
-export default mongoose.model('Lead', LeadSchema);
+export default mongoose.model<ILead>('Lead', LeadSchema);
